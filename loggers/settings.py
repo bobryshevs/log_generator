@@ -74,23 +74,23 @@ logger_config = {
     "loggers": {
         "base_debug_logger": {
             "level": "DEBUG",
-            "handlers": ["base_debug_console_handler",
-                         "base_debug_file_handler"]
+            "handlers": [  # "base_debug_console_handler",
+                "base_debug_file_handler"]
         },
         "base_info_logger": {
             "level": "INFO",
-            "handlers": ["base_info_console_handler",
-                         "base_info_file_handler"]
+            "handlers": [  # "base_info_console_handler",
+                "base_info_file_handler"]
         },
         "base_warning_logger": {
             "level": "WARNING",
-            "handlers": ["base_warning_console_handler",
-                         "base_warning_file_handler"]
+            "handlers": [  # "base_warning_console_handler",
+                "base_warning_file_handler"]
         },
         "base_error_logger": {
             "level": "ERROR",
-            "handlers": ["base_error_console_handler",
-                         "base_error_file_handler"]
+            "handlers": [  # "base_error_console_handler",
+                "base_error_file_handler"]
         },
         "base_critical_logger": {
             "level": "CRITICAL",

@@ -1,0 +1,23 @@
+version: "3.8"
+services: 
+  log_generator:
+    image: log_generator:latest
+    volumes:
+      - ./docker_logs/:/log_generator/logs/
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:7.14.1
+    command:
+      - "-e"
+      - "--strict.perms=false"
+    volumes:
+      - ./elastic_conf/filebeat.docker.yml:/usr/share/filebeat/filebeat.yml
+      - ./docker_logs:/docker_logs
+    links:
+      - "elasticsearch"
+    depends_on: 
+      - "elasticsearch"
+  elasticsearch:
+    image: elasticsearch:7.14.1
+    environment: 
+      - discovery.type=single-node
+    ports: ["9200:9200"]

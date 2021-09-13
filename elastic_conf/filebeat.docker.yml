@@ -1,0 +1,26 @@
+processors:
+  - add_host_metadata:
+      when.not.contains.tags: forwarded
+
+#  filebeat.autodiscover:
+#    providers:
+#      -type: docker
+#      templates:
+#        - condition:
+#            contains:
+#              docker.container.name: log_generator
+#          config:
+#            - type: container
+#              paths:
+#               - /var/lib/docker/containers/${data.docker.container.id}/*.log
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /docker_logs/*
+# output.console:
+#   codec.json:
+#     pretty: true
+output.elasticsearch:
+  hosts: ["elasticsearch:9200"]
+        
