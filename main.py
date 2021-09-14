@@ -9,7 +9,7 @@ from loggers import BaseLogger
 class Main:
     def __init__(self) -> None:
         self.levels = ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]
-        self.logger: BaseLogger = LoggersFactory().get_logger("BaseLogger")
+        self.logger: BaseLogger = LoggersFactory().get()
 
     def get_random_level(self) -> str:
         return choice(self.levels)

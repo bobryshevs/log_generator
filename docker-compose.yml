@@ -4,6 +4,8 @@ services:
     image: log_generator:latest
     volumes:
       - ./docker_logs/:/log_generator/logs/
+    depends_on: 
+      - "filebeat"
   filebeat:
     image: docker.elastic.co/beats/filebeat:7.14.1
     command:
